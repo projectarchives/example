@@ -61,6 +61,10 @@ public class ExampleClientPlugin extends RATPlugin {
 	@Override
 	public void onPacket(OnPacketEvent event) throws Exception {
 		log("Received packet: " + event.getPacket().getHeader());
+		
+		if (event.getPacket().getHeader() == HEADER) {
+			
+		}
 	}
 
 	@Override

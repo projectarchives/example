@@ -1,22 +1,24 @@
 package pro.jrat.client.ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ScrollPaneConstants;
 
 import pro.jrat.api.BaseControlPanel;
 import pro.jrat.api.RATObject;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.JTextPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import pro.jrat.client.AskPacket;
+import pro.jrat.client.ExampleClientPlugin;
 
 @SuppressWarnings("serial")
 public class ExampleControlPanel extends BaseControlPanel {
@@ -84,7 +86,12 @@ public class ExampleControlPanel extends BaseControlPanel {
 	}
 	
 	public void ask() {
-		
+		try {
+			super.getServer().addToSendQueue(new AskPacket(super.getServer(), txtQuestion.getText(), txtMessage.getText()));
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			ExampleClientPlugin.log("Failed to send packet: " + ex.getMessage());
+		}
 	}
 
 	@Override

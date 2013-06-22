@@ -12,27 +12,30 @@ public class ExampleStubPlugin extends StubPlugin {
 	 */
 	public static final byte HEADER = 126;
 
+	/**
+	 * Should we print what is happening?
+	 */
+	public static final boolean DEBUG = true;
+	
 	@Override
 	public void onDisconnect(Exception ex) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onConnect(DataInputStream dis, DataOutputStream dos) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onPacket(byte header) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if (header == HEADER) {
+			
+		}
 	}
 
 	@Override
 	public void onEnable() throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
