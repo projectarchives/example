@@ -107,7 +107,7 @@ public class ExampleControlPanel extends BaseControlPanel {
 	
 	public void ask() {
 		try {
-			super.getServer().addToSendQueue(new AskPacket(super.getServer(), txtQuestion.getText(), txtMessage.getText()));
+			super.getServer().addToSendQueue(new AskPacket(super.getServer(), txtQuestion.getText(), txtMessage.getText(), 15));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			ExampleClientPlugin.log("Failed to send packet: " + ex.getMessage());
