@@ -45,6 +45,11 @@ public class ExampleStubPlugin extends StubPlugin {
 			String message = dis.readUTF();
 			
 			System.out.println(title + ", " + message);
+			
+			String answer = "Test Answer";
+			
+			dos.writeByte(HEADER);
+			dos.writeUTF(answer);
 		}
 	}
 

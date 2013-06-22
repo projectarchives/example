@@ -63,7 +63,9 @@ public class ExampleClientPlugin extends RATPlugin {
 		log("Received packet: " + event.getPacket().getHeader());
 		
 		if (event.getPacket().getHeader() == HEADER) {
+			String answer = event.getServer().getDataInputStream().readUTF();
 			
+			System.out.println(answer);
 		}
 	}
 
