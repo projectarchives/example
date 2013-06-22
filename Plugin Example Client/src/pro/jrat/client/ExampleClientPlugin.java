@@ -14,70 +14,69 @@ import pro.jrat.api.events.OnPacketEvent;
 import pro.jrat.api.events.OnSendPacketEvent;
 
 public class ExampleClientPlugin extends RATPlugin {
+	
+	/**
+	 * Should we print out when events occurs?
+	 */
+	public static final boolean DEBUG = true;
+	
+	/**
+	 * The packet header. Recommended -127 to 0 and 100 to 127. 0-100 jRAT reserved.
+	 */
+	public static final byte HEADER = 126;
 
 	@Override
 	public void onEnable(OnEnableEvent event) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onPacket(OnPacketEvent event) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onConnect(OnConnectEvent event) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onDisconnect(OnDisconnectEvent event) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onDisable(OnDisableEvent event) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onSendPacket(OnSendPacketEvent event) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public String getName() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return "Example Plugin";
 	}
 
 	@Override
 	public String getVersion() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return "1.0";
 	}
 
 	@Override
 	public String getDescription() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return "jRAT Example Plugin";
 	}
 
 	@Override
 	public String getAuthor() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return "redpois0n";
 	}
 
 	@Override
 	public List<RATMenuItem> getMenuItems() throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
