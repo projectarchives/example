@@ -1,0 +1,1 @@
+pro.jrat.client.ExampleClientPlugin

@@ -17,6 +17,16 @@ public class ExampleStubPlugin extends StubPlugin {
 	 */
 	public static final boolean DEBUG = true;
 	
+	/**
+	 * Current DataInputStream
+	 */
+	public static DataInputStream dis;
+	
+	/**
+	 * Current DataOutputStream
+	 */
+	public static DataOutputStream dos;
+	
 	@Override
 	public void onDisconnect(Exception ex) throws Exception {
 		
@@ -24,13 +34,17 @@ public class ExampleStubPlugin extends StubPlugin {
 
 	@Override
 	public void onConnect(DataInputStream dis, DataOutputStream dos) throws Exception {
-		
+		ExampleStubPlugin.dis = dis;
+		ExampleStubPlugin.dos = dos;
 	}
 
 	@Override
 	public void onPacket(byte header) throws Exception {
 		if (header == HEADER) {
+			String title = dis.readUTF();
+			String message = dis.readUTF();
 			
+			System.out.println(title + ", " + message);
 		}
 	}
 
