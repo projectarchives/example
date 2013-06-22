@@ -19,8 +19,14 @@ import pro.jrat.api.events.OnDisconnectEvent;
 import pro.jrat.api.events.OnEnableEvent;
 import pro.jrat.api.events.OnPacketEvent;
 import pro.jrat.api.events.OnSendPacketEvent;
+import pro.jrat.client.ui.DialogAbout;
 
 public class ExampleClientPlugin extends RATPlugin {
+	
+	/**
+	 * Static about dialog
+	 */
+	public static final DialogAbout ABOUT_DIALOG = new DialogAbout();
 	
 	/**
 	 * Location to our icon
@@ -77,22 +83,22 @@ public class ExampleClientPlugin extends RATPlugin {
 	}
 
 	@Override
-	public String getName() throws Exception {
+	public String getName() {
 		return "Example Plugin";
 	}
 
 	@Override
-	public String getVersion() throws Exception {
+	public String getVersion() {
 		return "1.0";
 	}
 
 	@Override
-	public String getDescription() throws Exception {
+	public String getDescription() {
 		return "jRAT Example Plugin";
 	}
 
 	@Override
-	public String getAuthor() throws Exception {
+	public String getAuthor() {
 		return "redpois0n";
 	}
 
@@ -121,8 +127,12 @@ public class ExampleClientPlugin extends RATPlugin {
 
 	@Override
 	public ActionListener getGlobalMenuItemListener() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				ABOUT_DIALOG.setVisible(true);
+			}
+		};
 	}
 
 	
