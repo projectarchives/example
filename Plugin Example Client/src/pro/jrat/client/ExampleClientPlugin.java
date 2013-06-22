@@ -67,7 +67,7 @@ public class ExampleClientPlugin extends RATPlugin {
 			
 			System.out.println("Read: " + answer);
 			
-			ExampleControlPanel panel = ExampleControlPanel.INSTANCES.get(event.getServer());
+			ExampleControlPanel panel = ExampleControlPanel.INSTANCES.get(event.getServer().getUniqueId());
 			System.out.println("null: " + (panel == null));
 			if (panel != null) {
 				panel.getAnswerTextField().setText(answer);
