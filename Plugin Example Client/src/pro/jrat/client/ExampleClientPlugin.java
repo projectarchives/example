@@ -65,7 +65,11 @@ public class ExampleClientPlugin extends RATPlugin {
 		if (event.getPacket().getHeader() == HEADER) {
 			String answer = event.getServer().getDataInputStream().readUTF();
 			
-			System.out.println(answer);
+			ExampleControlPanel panel = ExampleControlPanel.INSTANCES.get(event.getServer());
+			
+			if (panel != null) {
+				panel.getAnswerTextField().setText(answer);
+			}
 		}
 	}
 

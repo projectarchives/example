@@ -119,7 +119,7 @@ public class ExampleControlPanel extends BaseControlPanel {
 		INSTANCES.remove(super.getServer());
 	}
 
-	public JTextPane getTxtAnswer() {
+	public JTextPane getAnswerTextField() {
 		return txtAnswer;
 	}
 }
