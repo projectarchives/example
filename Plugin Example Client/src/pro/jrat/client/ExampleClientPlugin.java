@@ -1,6 +1,8 @@
 package pro.jrat.client;
 
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import pro.jrat.api.RATControlMenuEntry;
@@ -16,6 +18,15 @@ import pro.jrat.api.events.OnSendPacketEvent;
 public class ExampleClientPlugin extends RATPlugin {
 	
 	/**
+	 * Location to our icon
+	 */
+	public static final String ICON_LOCATION = System.getProperty("jrat.dir") + File.separator + "plugins/Webcam/icon.png";
+
+	static {
+		
+	}
+	
+	/**
 	 * Should we print out when events occurs?
 	 */
 	public static final boolean DEBUG = true;
@@ -27,32 +38,32 @@ public class ExampleClientPlugin extends RATPlugin {
 
 	@Override
 	public void onEnable(OnEnableEvent event) throws Exception {
-		
+		log("Example Plugin enabled, jRAT version: " + event.getVersion());
 	}
 
 	@Override
 	public void onPacket(OnPacketEvent event) throws Exception {
-		
+		log("Received packet: " + event.getPacket().getHeader());
 	}
 
 	@Override
 	public void onConnect(OnConnectEvent event) throws Exception {
-		
+		log(event.getServer().getIP() + " connected");
 	}
 
 	@Override
 	public void onDisconnect(OnDisconnectEvent event) throws Exception {
-		
+		log(event.getServer().getIP() + " disconnected");
 	}
 
 	@Override
 	public void onDisable(OnDisableEvent event) throws Exception {
-		
+		log("Example Plugin disabled");
 	}
 
 	@Override
 	public void onSendPacket(OnSendPacketEvent event) throws Exception {
-		
+		log("Sent packet: " + event.getPacket().getHeader());
 	}
 
 	@Override
@@ -77,7 +88,10 @@ public class ExampleClientPlugin extends RATPlugin {
 
 	@Override
 	public List<RATMenuItem> getMenuItems() throws Exception {
-		return null;
+		RATMenuItem item = new RATMenuItem(listener, "Example Plugin", null);
+
+		List<RATMenuItem> list = new ArrayList<RATMenuItem>();
+		return list;
 	}
 
 	@Override
@@ -92,4 +106,10 @@ public class ExampleClientPlugin extends RATPlugin {
 		return null;
 	}
 
+	
+	public static void log(String s) {
+		if (DEBUG) {
+			System.out.println("[EXAMPLE DEBUG] " + s);
+		}
+	}
 }
