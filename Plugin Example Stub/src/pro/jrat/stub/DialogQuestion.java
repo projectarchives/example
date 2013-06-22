@@ -84,6 +84,7 @@ public abstract class DialogQuestion extends JDialog {
 		scrollPane_1.setViewportView(txtAnswer);
 		
 		txtQuestion = new JTextPane();
+		txtQuestion.setText(message);
 		scrollPane.setViewportView(txtQuestion);
 		getContentPane().setLayout(groupLayout);
 
