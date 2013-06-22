@@ -1,12 +1,17 @@
 package pro.jrat.client;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.ImageIcon;
+
 import pro.jrat.api.RATControlMenuEntry;
 import pro.jrat.api.RATMenuItem;
+import pro.jrat.api.RATMenuItemActionListener;
+import pro.jrat.api.RATObject;
 import pro.jrat.api.RATPlugin;
 import pro.jrat.api.events.OnConnectEvent;
 import pro.jrat.api.events.OnDisableEvent;
@@ -21,9 +26,14 @@ public class ExampleClientPlugin extends RATPlugin {
 	 * Location to our icon
 	 */
 	public static final String ICON_LOCATION = System.getProperty("jrat.dir") + File.separator + "plugins/Webcam/icon.png";
+	
+	/**
+	 * Icon
+	 */
+	public static ImageIcon icon = null;
 
 	static {
-		
+		icon = new ImageIcon(ICON_LOCATION);
 	}
 	
 	/**
@@ -88,16 +98,25 @@ public class ExampleClientPlugin extends RATPlugin {
 
 	@Override
 	public List<RATMenuItem> getMenuItems() throws Exception {
-		RATMenuItem item = new RATMenuItem(listener, "Example Plugin", null);
+		RATMenuItem item = new RATMenuItem(new RATMenuItemActionListener() {
+			@Override
+			public void onClick(List<RATObject> servers) {
+				
+			}
+		}, "Example Plugin", null);
 
 		List<RATMenuItem> list = new ArrayList<RATMenuItem>();
+		list.add(item);
 		return list;
 	}
 
 	@Override
 	public List<RATControlMenuEntry> getControlTreeItems() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		RATControlMenuEntry item = new RATControlMenuEntry("Example Plugin", icon, null);
+
+		List<RATControlMenuEntry> list = new ArrayList<RATControlMenuEntry>();
+		list.add(item);
+		return list;
 	}
 
 	@Override
