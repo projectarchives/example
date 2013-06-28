@@ -12,6 +12,13 @@ public class AskPacket extends PacketBuilder {
 	private String message;
 	private int seconds;
 
+	/**
+	 * 
+	 * @param rat
+	 * @param title
+	 * @param message
+	 * @param i
+	 */
 	public AskPacket(RATObject rat, String title, String message, int i) {
 		super(ExampleClientPlugin.HEADER, rat);
 		this.title = title;

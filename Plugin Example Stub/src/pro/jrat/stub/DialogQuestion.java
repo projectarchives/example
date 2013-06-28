@@ -20,7 +20,12 @@ public abstract class DialogQuestion extends JDialog {
 	private JTextPane txtQuestion;
 	private JTextPane txtAnswer;
 	private JLabel lblTimeLeftTo;
-
+	
+	/**
+	 * Initialize dialog
+	 * @param title
+	 * @param message
+	 */
 	public DialogQuestion(String title, String message) {
 		setTitle(title);
 		setResizable(false);
@@ -91,12 +96,23 @@ public abstract class DialogQuestion extends JDialog {
 
 	}
 
+	/**
+	 * Called when answer button is pressed or when count down reaches 0
+	 */
 	public abstract void onAnswer();
 
+	/**
+	 * Get answer
+	 * @return The answer (not trimmed)
+	 */
 	public String getAnswer() {
 		return txtAnswer.getText();
 	}
 
+	/**
+	 * Changes label text
+	 * @param seconds
+	 */
 	public void setTimeLeftToAnswer(int seconds) {
 		lblTimeLeftTo.setText("Time left to answer: " + seconds);
 	}
