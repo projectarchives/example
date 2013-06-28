@@ -15,6 +15,9 @@ import pro.jrat.client.ExampleClientPlugin;
 @SuppressWarnings("serial")
 public class DialogAbout extends JDialog {
 
+	/**
+	 * Initialize about dialog
+	 */
 	public DialogAbout() {
 		setTitle("About");
 		setResizable(false);

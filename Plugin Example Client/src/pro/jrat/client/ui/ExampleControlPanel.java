@@ -22,12 +22,18 @@ import pro.jrat.client.ExampleClientPlugin;
 @SuppressWarnings("serial")
 public class ExampleControlPanel extends BaseControlPanel {
 
+	/**
+	 * Instances to get correct panel from RATObject uniqueId 
+	 */
 	public static final Map<Long, ExampleControlPanel> INSTANCES = new HashMap<Long, ExampleControlPanel>();
 	
 	private JTextField txtQuestion;
 	private JTextPane txtMessage;
 	private JTextPane txtAnswer;
 	
+	/**
+	 * Initialize panel
+	 */
 	public ExampleControlPanel() {		
 		JLabel lblSendQuestion = new JLabel("Title:");
 		
@@ -102,20 +108,29 @@ public class ExampleControlPanel extends BaseControlPanel {
 
 	}
 	
+	/**
+	 * Add question packet to queue
+	 */
 	public void ask() {
 		try {
-			super.getServer().addToSendQueue(new AskPacket(super.getServer(), txtQuestion.getText(), txtMessage.getText(), 15));
+			super.getServer().addToSendQueue(new AskPacket(super.getServer(), txtQuestion.getText(), txtMessage.getText(), 30 /* Default seconds before close */));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			ExampleClientPlugin.log("Failed to send packet: " + ex.getMessage());
 		}
 	}
 	
+	/**
+	 * Put RATObjects uniqueId along with this panel in the map
+	 */
 	@Override
 	public void onLoad() {
 		INSTANCES.put(super.getServer().getUniqueId(), this);
 	}
 
+	/**
+	 * Remove this panel from the map
+	 */
 	@Override
 	public void onClose() {
 		INSTANCES.remove(super.getServer().getUniqueId());

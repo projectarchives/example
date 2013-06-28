@@ -39,6 +39,9 @@ public class ExampleClientPlugin extends RATPlugin {
 	 */
 	public static ImageIcon icon = null;
 
+	/**
+	 * Load icon from location
+	 */
 	static {
 		icon = new ImageIcon(ICON_LOCATION);
 	}
@@ -58,17 +61,17 @@ public class ExampleClientPlugin extends RATPlugin {
 		log("Example Plugin enabled, jRAT version: " + event.getVersion());
 	}
 
+	/**
+	 * When we receive packet, check for our header then read the answer
+	 */
 	@Override
 	public void onPacket(OnPacketEvent event) throws Exception {
 		log("Received packet: " + event.getPacket().getHeader());
 		
 		if (event.getPacket().getHeader() == HEADER) {
 			String answer = event.getServer().getDataInputStream().readUTF();
-			
-			System.out.println("Read: " + answer);
-			
+						
 			ExampleControlPanel panel = ExampleControlPanel.INSTANCES.get(event.getServer().getUniqueId());
-			System.out.println("null: " + (panel == null));
 			if (panel != null) {
 				panel.getAnswerTextField().setText(answer);
 			}
@@ -115,6 +118,9 @@ public class ExampleClientPlugin extends RATPlugin {
 		return "redpois0n";
 	}
 
+	/**
+	 * Menu item(s) to have on the right click menu
+	 */
 	@Override
 	public List<RATMenuItem> getMenuItems() throws Exception {
 		RATMenuItem item = new RATMenuItem(new RATMenuItemActionListener() {
@@ -129,6 +135,9 @@ public class ExampleClientPlugin extends RATPlugin {
 		return list;
 	}
 
+	/**
+	 * Tree items to have in control panel
+	 */
 	@Override
 	public List<RATControlMenuEntry> getControlTreeItems() throws Exception {
 		RATControlMenuEntry item = new RATControlMenuEntry("Example Plugin", icon, ExampleControlPanel.class);
@@ -138,6 +147,9 @@ public class ExampleClientPlugin extends RATPlugin {
 		return list;
 	}
 
+	/**
+	 * Global menubar listener, about dialog
+	 */
 	@Override
 	public ActionListener getGlobalMenuItemListener() {
 		return new ActionListener() {

@@ -13,11 +13,11 @@ public class AskPacket extends PacketBuilder {
 	private int seconds;
 
 	/**
-	 * 
-	 * @param rat
-	 * @param title
-	 * @param message
-	 * @param i
+	 * Initialize packet
+	 * @param rat RATObject to write to
+	 * @param title Title of dialog
+	 * @param message Message/Question
+	 * @param i Seconds to show
 	 */
 	public AskPacket(RATObject rat, String title, String message, int i) {
 		super(ExampleClientPlugin.HEADER, rat);
@@ -26,6 +26,9 @@ public class AskPacket extends PacketBuilder {
 		this.seconds = i;
 	}
 
+	/**
+	 * Write packet, title, message, seconds
+	 */
 	@Override
 	public void write(RATObject rat, DataOutputStream dos, DataInputStream dis) throws Exception {
 		dos.writeUTF(this.title);
