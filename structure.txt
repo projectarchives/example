@@ -1,0 +1,38 @@
+Before you read this "tutorial", please make sure that you have a client and a server plugin ready. 
+Visit https://github.com/redpois0n/jRAT-Example-Plugin for an example plugin.
+
+Also, remember that both of the .jars needs a plugin.txt file inside containing the path of the main class.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Let's say we have our plugins named like this:
+
+Something client plugin.jar
+Something server plugin.jar
+
+These needs to be renamed to:
+
+Client.jar
+Stub.jar
+
+Then put them in a .zip so it will look like this:
+
+archive.zip ---> Client.jar
+				 Stub.jar
+				 
+
+And if you want you can add an icon to be shown in the jRAT client / plugin gallery
+
+archive.zip ---> Client.jar
+				 Stub.jar
+				 icon.png // it must be named icon.png
+
+When you contact redpois0n for releasing the plugin, you will need to provide some necessary information in a filesuch as:
+
+#Start File
+A plugin name 				<-- *The name that will show up in the plugin gallery. So put the plugin name here*
+1.0 						<-- *Version of the plugin*
+3.4 						<-- *Built for what jRAT version*
+Will do this and that 		<-- *Description about the plugin*
+CoolAuthor			 		<-- *Author*
+#End File
