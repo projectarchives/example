@@ -1,1 +1,1 @@
-pro.jrat.client.ExampleClientPlugin
+jrat.plugin.example.client.ExampleClientPlugin

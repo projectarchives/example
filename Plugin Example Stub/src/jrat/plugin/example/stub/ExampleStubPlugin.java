@@ -1,4 +1,4 @@
-package io.jrat.plugin.example.stub;
+package jrat.plugin.example.stub;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
