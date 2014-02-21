@@ -1,4 +1,4 @@
-package pro.jrat.stub;
+package io.jrat.plugin.example.stub;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

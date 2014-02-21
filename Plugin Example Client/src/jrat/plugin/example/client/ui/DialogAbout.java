@@ -1,16 +1,19 @@
-package pro.jrat.client.ui;
+package jrat.plugin.example.client.ui;
 
-import javax.swing.JDialog;
+
+import java.awt.Color;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ScrollPaneConstants;
 
-import pro.jrat.client.ExampleClientPlugin;
+import jrat.plugin.example.client.ExampleClientPlugin;
+
 
 @SuppressWarnings("serial")
 public class DialogAbout extends JDialog {

