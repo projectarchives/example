@@ -33,7 +33,7 @@ public class ExampleClientPlugin extends RATPlugin {
 	/**
 	 * Location to our icon
 	 */
-	public static final String ICON_LOCATION = System.getProperty("jrat.dir") + File.separator + "plugins/Example Plugin/icon.png";
+	public static final String ICON_LOCATION = System.getProperty("jrat.dir") + File.separator + "files/plugins/Example Plugin/icon.png";
 	
 	/**
 	 * Icon
