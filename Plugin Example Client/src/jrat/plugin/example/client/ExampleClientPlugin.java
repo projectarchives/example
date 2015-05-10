@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import jrat.api.RATObject;
+import jrat.api.Client;
 import jrat.api.RATPlugin;
 import jrat.api.events.AbstractEvent;
 import jrat.api.events.Event;
@@ -57,7 +57,7 @@ public class ExampleClientPlugin extends RATPlugin {
 
 		RATMenuItem item = new RATMenuItem(new RATMenuItemActionListener() {
 			@Override
-			public void onClick(List<RATObject> servers) {
+			public void onClick(List<Client> servers) {
 
 			}
 		}, "Example Plugin", IconUtils.getIcon("icon", ExampleClientPlugin.class));
