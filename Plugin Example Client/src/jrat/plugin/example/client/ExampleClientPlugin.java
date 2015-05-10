@@ -61,11 +61,6 @@ public class ExampleClientPlugin extends RATPlugin {
 		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT");
 	}
 
-	@Override
-	public void onEnable(OnEnableEvent event) throws Exception {
-		log("Example Plugin enabled, jRAT version: " + event.getVersion());
-	}
-
 	/**
 	 * When we receive packet, check for our header then read the answer
 	 */
