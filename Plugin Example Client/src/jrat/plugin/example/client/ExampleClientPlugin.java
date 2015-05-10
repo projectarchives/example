@@ -9,9 +9,6 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 
-import jrat.api.RATControlMenuEntry;
-import jrat.api.RATMenuItem;
-import jrat.api.RATMenuItemActionListener;
 import jrat.api.RATObject;
 import jrat.api.RATPlugin;
 import jrat.api.events.OnConnectEvent;
@@ -20,6 +17,9 @@ import jrat.api.events.OnDisconnectEvent;
 import jrat.api.events.OnEnableEvent;
 import jrat.api.events.OnPacketEvent;
 import jrat.api.events.OnSendPacketEvent;
+import jrat.api.ui.RATControlMenuEntry;
+import jrat.api.ui.RATMenuItem;
+import jrat.api.ui.RATMenuItemActionListener;
 import jrat.plugin.example.client.ui.DialogAbout;
 import jrat.plugin.example.client.ui.ExampleControlPanel;
 
