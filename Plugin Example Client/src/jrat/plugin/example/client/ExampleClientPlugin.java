@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.util.List;
 
 import jrat.api.Client;
-import jrat.api.Packet;
 import jrat.api.RATPlugin;
 import jrat.api.events.AbstractEvent;
 import jrat.api.events.Event;
 import jrat.api.events.EventType;
+import jrat.api.net.Packet;
 import jrat.api.net.PacketListener;
 import jrat.api.ui.RATMenuItem;
 import jrat.api.ui.RATMenuItemActionListener;
