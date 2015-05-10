@@ -23,7 +23,7 @@ public class PacketReceivedEvent extends Event {
 				try {
 					String answer = event.getServer().getDataInputStream().readUTF();
 								
-					ExampleControlPanel panel = ExampleControlPanel.INSTANCES.get(event.getServer().getUniqueId());
+					ExampleControlPanel panel = ExampleControlPanel.INSTANCES.get(event.getServer());
 					if (panel != null) {
 						panel.getAnswerTextField().setText(answer);
 					}

