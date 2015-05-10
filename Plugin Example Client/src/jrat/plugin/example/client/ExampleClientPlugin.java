@@ -4,17 +4,20 @@ import iconlib.IconUtils;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 
 import jrat.api.Client;
+import jrat.api.Packet;
 import jrat.api.RATPlugin;
 import jrat.api.events.AbstractEvent;
 import jrat.api.events.Event;
 import jrat.api.events.EventType;
-import jrat.api.events.OnSendPacketEvent;
+import jrat.api.net.PacketListener;
 import jrat.api.ui.RATMenuItem;
 import jrat.api.ui.RATMenuItemActionListener;
 import jrat.plugin.example.client.ui.DialogAbout;
+import jrat.plugin.example.client.ui.ExampleControlPanel;
 
 public class ExampleClientPlugin extends RATPlugin {
 
@@ -37,21 +40,37 @@ public class ExampleClientPlugin extends RATPlugin {
 	public ExampleClientPlugin() {
 		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT");
 
-		Event.getHandler().register(EventType.EVENT_CLIENT_PACKET_RECEIVED, new PacketReceivedEvent());
+		Packet.registerIncoming(HEADER, new PacketListener() {
+			@Override
+			public void perform(Client client) {
+				ExampleClientPlugin.log("Received packet with header " + HEADER + " from " + client.getIP());
+
+				try {
+					String answer = client.getDataInputStream().readUTF();
+
+					ExampleControlPanel panel = ExampleControlPanel.INSTANCES.get(client);
+					if (panel != null) {
+						panel.getAnswerTextField().setText(answer);
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+
+		});
+		Packet.registerOutgoing(HEADER, new PacketListener() {
+			@Override
+			public void perform(Client client) {
+				log("Sent packet with header " + HEADER + " to " + client.getIP());
+			}
+		});
+		
 		Event.getHandler().register(EventType.EVENT_CLIENT_CONNECT, new ConnectEvent());
 		Event.getHandler().register(EventType.EVENT_CLIENT_DISCONNECT, new DisconnectEvent());
 		Event.getHandler().register(EventType.EVENT_PLUGIN_DISABLE, new Event() {
 			@Override
 			public void perform(AbstractEvent event) {
 				log("Example Plugin disabled");
-			}
-		});
-		Event.getHandler().register(EventType.EVENT_SERVER_PACKET_SEND, new Event() {
-			@Override
-			public void perform(AbstractEvent event) {
-				if (event instanceof OnSendPacketEvent) {
-					log("Sent packet: " + ((OnSendPacketEvent) event).getPacket().getHeader());
-				}
 			}
 		});
 
