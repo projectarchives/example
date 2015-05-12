@@ -16,8 +16,8 @@ import javax.swing.JTextPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ScrollPaneConstants;
 
-import jrat.api.BaseControlPanel;
 import jrat.api.Client;
+import jrat.api.ui.BaseControlPanel;
 import jrat.plugin.example.client.AskPacket;
 import jrat.plugin.example.client.ExampleClientPlugin;
 
@@ -36,7 +36,8 @@ public class ExampleControlPanel extends BaseControlPanel {
 	/**
 	 * Initialize panel
 	 */
-	public ExampleControlPanel() {		
+	public ExampleControlPanel(Client client) {
+		super(client);
 		JLabel lblSendQuestion = new JLabel("Title:");
 		
 		txtQuestion = new JTextField();
@@ -115,7 +116,7 @@ public class ExampleControlPanel extends BaseControlPanel {
 	 */
 	public void ask() {
 		try {
-			super.getServer().addToSendQueue(new AskPacket(super.getServer(), txtQuestion.getText(), txtMessage.getText(), 30 /* Default seconds before close */));
+			super.getClient().addToSendQueue(new AskPacket(super.getClient(), txtQuestion.getText(), txtMessage.getText(), 30 /* Default seconds before close */));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			ExampleClientPlugin.log("Failed to send packet: " + ex.getMessage());
@@ -127,7 +128,7 @@ public class ExampleControlPanel extends BaseControlPanel {
 	 */
 	@Override
 	public void onLoad() {
-		INSTANCES.put(super.getServer(), this);
+		INSTANCES.put(super.getClient(), this);
 	}
 
 	/**
@@ -135,7 +136,7 @@ public class ExampleControlPanel extends BaseControlPanel {
 	 */
 	@Override
 	public void onClose() {
-		INSTANCES.remove(super.getServer());
+		INSTANCES.remove(super.getClient());
 	}
 
 	public JTextPane getAnswerTextField() {
