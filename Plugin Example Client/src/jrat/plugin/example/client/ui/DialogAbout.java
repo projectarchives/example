@@ -12,8 +12,6 @@ import javax.swing.JTextPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ScrollPaneConstants;
 
-import jrat.plugin.example.client.ExampleClientPlugin;
-
 
 @SuppressWarnings("serial")
 public class DialogAbout extends JDialog {
@@ -25,16 +23,14 @@ public class DialogAbout extends JDialog {
 		setTitle("About");
 		setResizable(false);
 		setBounds(100, 100, 381, 213);
+				
+		JLabel lblName = new JLabel("Name: Example Plugin");
 		
-		ExampleClientPlugin instance = new ExampleClientPlugin();
+		JLabel lblVersion = new JLabel("Version: 1.0");
 		
-		JLabel lblName = new JLabel("Name: " + instance.getName());
+		JLabel lblAuthorShow = new JLabel("Author: ");
 		
-		JLabel lblVersion = new JLabel("Version: " + instance.getVersion());
-		
-		JLabel lblAuthorShow = new JLabel("Author:");
-		
-		JLabel lblAuthor = new JLabel(instance.getAuthor());
+		JLabel lblAuthor = new JLabel("jRAT");
 		lblAuthor.setForeground(Color.BLUE);
 		
 		JLabel lblDescription = new JLabel("Description:");
@@ -78,7 +74,7 @@ public class DialogAbout extends JDialog {
 		);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setText(instance.getDescription());
+		textPane.setText("jRAT Example Plugin");
 		scrollPane.setViewportView(textPane);
 		getContentPane().setLayout(groupLayout);
 
