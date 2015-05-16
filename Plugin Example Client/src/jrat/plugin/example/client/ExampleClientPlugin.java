@@ -38,7 +38,7 @@ public class ExampleClientPlugin extends Plugin {
 	public static final byte HEADER = 126;
 
 	public ExampleClientPlugin() {
-		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT");
+		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT", IconUtils.getIcon("icon", ExampleClientPlugin.class));
 
 		Packet.registerIncoming(HEADER, new PacketListener() {
 			@Override
