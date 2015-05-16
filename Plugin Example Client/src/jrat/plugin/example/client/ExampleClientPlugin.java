@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import jrat.api.Client;
-import jrat.api.RATPlugin;
+import jrat.api.Plugin;
 import jrat.api.events.AbstractEvent;
 import jrat.api.events.Event;
 import jrat.api.events.EventType;
@@ -19,7 +19,7 @@ import jrat.api.ui.RATMenuItemActionListener;
 import jrat.plugin.example.client.ui.DialogAbout;
 import jrat.plugin.example.client.ui.ExampleControlPanel;
 
-public class ExampleClientPlugin extends RATPlugin {
+public class ExampleClientPlugin extends Plugin {
 
 	/**
 	 * Static about dialog
