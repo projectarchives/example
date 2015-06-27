@@ -35,7 +35,7 @@ public class ExampleClientPlugin extends Plugin {
 	 * The packet header. Recommended -127 to 0 and 100 to 127. 0-100 jRAT
 	 * reserved.
 	 */
-	public static final byte HEADER = 126;
+	public static final short HEADER = 126;
 
 	public ExampleClientPlugin() {
 		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT", IconUtils.getIcon("icon", ExampleClientPlugin.class));
