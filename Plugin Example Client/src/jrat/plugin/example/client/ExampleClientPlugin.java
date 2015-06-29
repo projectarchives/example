@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import jrat.api.Client;
+import jrat.api.Icons;
 import jrat.api.Plugin;
 import jrat.api.events.AbstractEvent;
 import jrat.api.events.Event;
@@ -38,7 +39,8 @@ public class ExampleClientPlugin extends Plugin {
 	public static final short HEADER = 126;
 
 	public ExampleClientPlugin() {
-		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT", IconUtils.getIcon("icon", ExampleClientPlugin.class));
+		/** call super constructor, Icons.getIcon() argument 1 is the plugin file name ("files/plugins/Example.jar") and argument 2 is the resource location **/
+		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT", Icons.getIcon("Example", "/icons/icon.png"));
 
 		Packet.registerIncoming(HEADER, new PacketListener() {
 			@Override
