@@ -101,10 +101,4 @@ public class ExampleStubPlugin extends StubPlugin {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	}
 
-	@Override
-	public void onStart() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
