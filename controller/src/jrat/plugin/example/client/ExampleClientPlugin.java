@@ -20,6 +20,8 @@ import jrat.api.ui.RATMenuItemActionListener;
 import jrat.plugin.example.client.ui.DialogAbout;
 import jrat.plugin.example.client.ui.ExampleControlPanel;
 
+import javax.swing.ImageIcon;
+
 public class ExampleClientPlugin extends Plugin {
 
 	/**
@@ -40,7 +42,13 @@ public class ExampleClientPlugin extends Plugin {
 
 	public ExampleClientPlugin() {
 		/** call super constructor, Icons.getIcon() argument 1 is the plugin file name ("files/plugins/Example.jar") and argument 2 is the resource location **/
-		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT", Icons.getIcon("Example", "/icons/icon.png"));
+		super("Example Plugin", "1.0", "jRAT Example Plugin", "jRAT");
+
+		try {
+			icon = new ImageIcon(getResource("icons/icon.png"));
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 
 		Packet.registerIncoming(HEADER, new PacketListener() {
 			@Override
